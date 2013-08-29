@@ -31,7 +31,7 @@ RcppExport SEXP RODBOExecute(SEXP rhandle, SEXP rquery)
 		odboGetDataset(&results);
 		rapidjson::Document doc;
 		doc.Parse<0>(results);
-
+		std::cout << results << std::endl;
 		unsigned numRows = doc["rowNames"].Size();
 		unsigned numCols = doc["colNames"].Size();
 		Rcpp::CharacterVector colNames;
