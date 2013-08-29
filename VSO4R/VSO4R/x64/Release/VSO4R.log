@@ -1,4 +1,4 @@
-﻿Build started 29/08/2013 11:06:00 AM.
+﻿Build started 29/08/2013 2:49:30 PM.
      1>Project "C:\Users\norrisl\Documents\RPackages\O4R\VSO4R\VSO4R\VSO4R.vcxproj" on node 2 (rebuild target(s)).
      1>_PrepareForClean:
          Deleting file "x64\Release\VSO4R.lastbuildstate".
@@ -51,4 +51,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:05.09
+Time Elapsed 00:00:04.87

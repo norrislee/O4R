@@ -4,7 +4,7 @@
 /// Implements the client side proxy class for all ODBO Providers. Implements the
 /// required COM interfaces for communicating with a generic ODBO provider.
 ///
-/// Copyright: Copyright (C) 2008-2009 Simba Technologies Incorporated
+/// Copyright: Copyright (C) 2013 Simba Technologies Incorporated
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
 // Enable specfic COM functionality

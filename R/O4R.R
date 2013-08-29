@@ -28,11 +28,11 @@ odboExecute <- function(handle, query)
 
 print.ODBO <- function(x, ...)
 {
-    cat("Connection ", x[1], "\nURL: ", attr(x, "URL"), "\nSessionID: ", attr(x, "Session"), "\nUsername: ", attr(x, "Username"), "\nPassword: ", attr(x, "Password"), "\n")
+    cat("Connection ", x[1], "\nProvider: ", attr(x, "Provider"), "\nConnection string: ", attr(x, "ConString"), "\n")
     invisible(x)
 }
 
 odboValidateHandle <- function(handle)
 {
-
+	inherits(handle, "ODBO") && is.integer(handle) && .Call("RXMLAValidHandle", handle)
 }

@@ -3,7 +3,7 @@
 ///
 /// Implementation of the Parameter Map helper functions.
 ///
-/// Copyright: Copyright (C) 2008-2009 Simba Technologies Incorporated
+/// Copyright: Copyright (C) 2013 Simba Technologies Incorporated
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
 #include <stdexcept>

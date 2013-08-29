@@ -3,7 +3,7 @@
 ///
 /// Implementation of the Unicode conversion helper function.
 ///
-/// Copyright: Copyright (C) 2008-2009 Simba Technologies Incorporated
+/// Copyright: Copyright (C) 2013 Simba Technologies Incorporated
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
 #include <oledb.h>
