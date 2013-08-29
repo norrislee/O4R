@@ -1,0 +1,13 @@
+PKG_CPPFLAGS+= -I../VSO4R/VSO4R
+PKG_LIBS+= -L${R_HOME}/library/Rcpp/libs/i386
+PKG_LIBS+= -L${R_HOME}/library/Rcpp/libs/x64
+PKG_LIBS+= -lRcpp
+ifeq "$(WIN)" "64"
+PKG_LIBS+= -L.
+PKG_LIBS+= -lVSO4R64
+else
+PKG_LIBS+= -L.
+PKG_LIBS+= -lVSO4R
+endif
+PKG_LIBS+= -lws2_32
+

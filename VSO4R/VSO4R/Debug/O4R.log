@@ -1,0 +1,20 @@
+﻿Build started 20/08/2013 4:54:33 PM.
+     1>Project "C:\Users\norrisl\Documents\RPackages\O4R\VSO4R\O4R\O4R.vcxproj" on node 2 (build target(s)).
+     1>InitializeBuildStatus:
+         Creating "Debug\O4R.unsuccessfulbuild" because "AlwaysCreate" was specified.
+       ClCompile:
+         All outputs are up-to-date.
+       ManifestResourceCompile:
+         All outputs are up-to-date.
+       Link:
+         All outputs are up-to-date.
+       Manifest:
+         All outputs are up-to-date.
+       FinalizeBuildStatus:
+         Deleting file "Debug\O4R.unsuccessfulbuild".
+         Touching "Debug\O4R.lastbuildstate".
+     1>Done Building Project "C:\Users\norrisl\Documents\RPackages\O4R\VSO4R\O4R\O4R.vcxproj" (build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:00.04

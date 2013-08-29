@@ -1,0 +1,11 @@
+Package: O4R
+Type: Package
+Title: ODBO/MDX cube tool for R
+Version: 1.0
+Date: 2013-07-18
+Author: George Chow, Norris Lee
+Maintainer: George Chow <georgec@simba.com>
+Description: Enable R users to source data from from an OLAP cube via ODBO by specifying an MDX query.
+License: GPL-2 | GPL-3
+Depends: Rcpp (>= 0.10.4)
+LinkingTo: Rcpp

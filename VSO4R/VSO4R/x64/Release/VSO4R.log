@@ -1,0 +1,54 @@
+﻿Build started 29/08/2013 11:06:00 AM.
+     1>Project "C:\Users\norrisl\Documents\RPackages\O4R\VSO4R\VSO4R\VSO4R.vcxproj" on node 2 (rebuild target(s)).
+     1>_PrepareForClean:
+         Deleting file "x64\Release\VSO4R.lastbuildstate".
+     1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\Microsoft.CppBuild.targets(299,5): warning MSB8004: Output Directory does not end with a trailing slash.  This build instance will add the slash as it is required to allow proper evaluation of the Output Directory.
+       InitializeBuildStatus:
+         Creating "x64\Release\VSO4R.unsuccessfulbuild" because "AlwaysCreate" was specified.
+       ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\x86_amd64\CL.exe /c /Zi /nologo /W3 /WX- /O2 /Oi /GL /D WIN32 /D NDEBUG /D _CONSOLE /D ADD_EXPORTS /D _WINDLL /D _UNICODE /D UNICODE /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo"x64\Release\\" /Fd"x64\Release\vc100.pdb" /Gd /TP /errorReport:prompt COMEror.cpp COMVariant.cpp VSO4R.cpp ODBOProviderProxy.cpp ODBOUtils.cpp ParamterMap.cpp Unicode.cpp VariantProxy.cpp
+         COMEror.cpp
+         COMVariant.cpp
+         VSO4R.cpp
+     1>VSO4R.cpp(176): warning C4267: '=' : conversion from 'size_t' to 'unsigned int', possible loss of data
+     1>VSO4R.cpp(177): warning C4244: '+=' : conversion from 'DBORDINAL' to 'unsigned int', possible loss of data
+     1>VSO4R.cpp(209): warning C4996: 'strdup': The POSIX name for this item is deprecated. Instead, use the ISO C++ conformant name: _strdup. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\string.h(238) : see declaration of 'strdup'
+     1>VSO4R.cpp(218): warning C4996: 'strdup': The POSIX name for this item is deprecated. Instead, use the ISO C++ conformant name: _strdup. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\string.h(238) : see declaration of 'strdup'
+     1>VSO4R.cpp(228): warning C4996: 'itoa': The POSIX name for this item is deprecated. Instead, use the ISO C++ conformant name: _itoa. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\stdlib.h(867) : see declaration of 'itoa'
+     1>VSO4R.cpp(240): warning C4996: 'strdup': The POSIX name for this item is deprecated. Instead, use the ISO C++ conformant name: _strdup. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\string.h(238) : see declaration of 'strdup'
+         ODBOProviderProxy.cpp
+         ODBOUtils.cpp
+         ParamterMap.cpp
+         Unicode.cpp
+     1>Unicode.cpp(24): warning C4996: 'wcstombs': This function or variable may be unsafe. Consider using wcstombs_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\stdlib.h(533) : see declaration of 'wcstombs'
+     1>Unicode.cpp(28): warning C4996: 'wcstombs': This function or variable may be unsafe. Consider using wcstombs_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\stdlib.h(533) : see declaration of 'wcstombs'
+         VariantProxy.cpp
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\x86_amd64\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\norrisl\Documents\RPackages\O4R\VSO4R\\..\src\VSO4R64.dll" /INCREMENTAL:NO /NOLOGO msdasc.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"x64\Release\VSO4R64.dll.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"C:\Users\norrisl\Documents\RPackages\O4R\src\VSO4R64.pdb" /SUBSYSTEM:CONSOLE /OPT:REF /OPT:ICF /LTCG /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\norrisl\Documents\RPackages\O4R\VSO4R\\..\src\VSO4R64.lib" /MACHINE:X64 /DLL x64\Release\COMEror.obj
+         x64\Release\COMVariant.obj
+         x64\Release\VSO4R.obj
+         x64\Release\ODBOProviderProxy.obj
+         x64\Release\ODBOUtils.obj
+         x64\Release\ParamterMap.obj
+         x64\Release\Unicode.obj
+         x64\Release\VariantProxy.obj
+            Creating library C:\Users\norrisl\Documents\RPackages\O4R\VSO4R\\..\src\VSO4R64.lib and object C:\Users\norrisl\Documents\RPackages\O4R\VSO4R\\..\src\VSO4R64.exp
+         Generating code
+         Finished generating code
+         VSO4R.vcxproj -> C:\Users\norrisl\Documents\RPackages\O4R\VSO4R\\..\src\VSO4R64.dll
+       Manifest:
+         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /outputresource:"C:\Users\norrisl\Documents\RPackages\O4R\VSO4R\\..\src\VSO4R64.dll;#2" /manifest x64\Release\VSO4R64.dll.intermediate.manifest
+       FinalizeBuildStatus:
+         Deleting file "x64\Release\VSO4R.unsuccessfulbuild".
+         Touching "x64\Release\VSO4R.lastbuildstate".
+     1>Done Building Project "C:\Users\norrisl\Documents\RPackages\O4R\VSO4R\VSO4R\VSO4R.vcxproj" (rebuild target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:05.09

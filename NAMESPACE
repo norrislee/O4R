@@ -1,0 +1,3 @@
+useDynLib(O4R)
+export(odboConnect, odboClose, odboExecute)
+S3method(print, ODBO)

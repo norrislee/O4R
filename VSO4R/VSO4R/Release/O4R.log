@@ -1,0 +1,60 @@
+﻿Build started 21/08/2013 1:07:37 PM.
+     1>Project "C:\Users\norrisl\Documents\RPackages\O4R\VSO4R\O4R\O4R.vcxproj" on node 2 (rebuild target(s)).
+     1>_PrepareForClean:
+         Deleting file "Release\O4R.lastbuildstate".
+       InitializeBuildStatus:
+         Creating "Release\O4R.unsuccessfulbuild" because "AlwaysCreate" was specified.
+       ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /Zi /nologo /W3 /WX- /O2 /Oi /Oy- /GL /D WIN32 /D NDEBUG /D _CONSOLE /D _WINDLL /D _UNICODE /D UNICODE /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Release\\" /Fd"Release\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt COMEror.cpp COMVariant.cpp O4R.cpp ODBOProviderProxy.cpp ODBOUtils.cpp ParamterMap.cpp Unicode.cpp VariantProxy.cpp
+         COMEror.cpp
+         COMVariant.cpp
+         O4R.cpp
+         ODBOProviderProxy.cpp
+         ODBOUtils.cpp
+         ParamterMap.cpp
+         Unicode.cpp
+     1>Unicode.cpp(24): warning C4996: 'wcstombs': This function or variable may be unsafe. Consider using wcstombs_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\stdlib.h(533) : see declaration of 'wcstombs'
+     1>Unicode.cpp(28): warning C4996: 'wcstombs': This function or variable may be unsafe. Consider using wcstombs_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\stdlib.h(533) : see declaration of 'wcstombs'
+         VariantProxy.cpp
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\norrisl\Documents\RPackages\O4R\VSO4R\Release\O4R.dll" /INCREMENTAL:NO /NOLOGO msdasc.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Release\O4R.dll.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"C:\Users\norrisl\Documents\RPackages\O4R\VSO4R\Release\O4R.pdb" /SUBSYSTEM:CONSOLE /OPT:REF /OPT:ICF /LTCG /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\norrisl\Documents\RPackages\O4R\VSO4R\Release\O4R.lib" /MACHINE:X86 /DLL Release\COMEror.obj
+         Release\COMVariant.obj
+         Release\O4R.obj
+         Release\ODBOProviderProxy.obj
+         Release\ODBOUtils.obj
+         Release\ParamterMap.obj
+         Release\Unicode.obj
+         Release\VariantProxy.obj
+         Generating code
+         Finished generating code
+         O4R.vcxproj -> C:\Users\norrisl\Documents\RPackages\O4R\VSO4R\Release\O4R.dll
+       Manifest:
+         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /outputresource:"C:\Users\norrisl\Documents\RPackages\O4R\VSO4R\Release\O4R.dll;#2" /manifest Release\O4R.dll.intermediate.manifest
+       PostBuildEvent:
+         R CMD INSTALL ../../../O4R --no-multiarch
+         :VCEnd
+         * installing to library 'C:/R/R-3.0.1/library'
+         * installing *source* package 'O4R' ...
+         ** libs
+     1>EXEC : cygwin warning : 
+           MS-DOS style path detected: C:/R/R-3.0.1/etc/i386/Makeconf
+           Preferred POSIX equivalent is: /cygdrive/c/R/R-3.0.1/etc/i386/Makeconf
+           CYGWIN environment variable option "nodosfilewarning" turns off this warning.
+           Consult the user's guide for more details about POSIX paths:
+             http://cygwin.com/cygwin-ug-net/using.html#using-pathnames
+         g++ -m32 -I"C:/R/R-3.0.1/include" -DNDEBUG -I. -L../VSO4R/Release/. -l../VSO4R/Release/O4R   -I"C:/R/R-3.0.1/library/Rcpp/include" -I"d:/RCompile/CRANpkg/extralibs64/local/include"     -O2 -Wall  -mtune=core2 -c O4R.cpp -o O4R.o
+         g++ -m32 -shared -s -static-libgcc -o O4R.dll tmp.def O4R.o -LC:/R/R-3.0.1/library/Rcpp/libs/i386 -LC:/R/R-3.0.1/library/Rcpp/libs/x64 -L. -lO4R -lRcpp -lws2_32 -Ld:/RCompile/CRANpkg/extralibs64/local/lib/i386 -Ld:/RCompile/CRANpkg/extralibs64/local/lib -LC:/R/R-3.0.1/bin/i386 -lR
+         ./O4R.dll: file not recognized: File truncated
+         collect2: ld returned 1 exit status
+     1>EXEC : error : compilation failed for package 'O4R'
+         * removing 'C:/R/R-3.0.1/library/O4R'
+         * restoring previous 'C:/R/R-3.0.1/library/O4R'
+     1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\Microsoft.CppCommon.targets(113,5): error MSB3073: The command "R CMD INSTALL ../../../O4R --no-multiarch
+C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\Microsoft.CppCommon.targets(113,5): error MSB3073: :VCEnd" exited with code 1.
+     1>Done Building Project "C:\Users\norrisl\Documents\RPackages\O4R\VSO4R\O4R\O4R.vcxproj" (rebuild target(s)) -- FAILED.
+
+Build FAILED.
+
+Time Elapsed 00:00:04.45
