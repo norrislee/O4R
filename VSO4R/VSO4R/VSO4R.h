@@ -19,6 +19,7 @@
 
 #include "ODBOProviderProxy.h"
 #include "ODBOUtils.h"
+#include "getSchemaRowsetResults.h"
 #include "COMError.h"
 
 #ifdef ADD_EXPORTS
@@ -41,7 +42,23 @@ extern "C" {
 
 	ADDAPI bool ADDCALL odboExecute(int connectionNum, const char *query);
 
-	ADDAPI void ADDCALL odboGetDataset(char** results);
+	ADDAPI void ADDCALL odboGetDataset(char **results);
+	
+	ADDAPI bool ADDCALL odboValidHandle(int connectionNum);
+
+	ADDAPI void ADDCALL odboGetCatalogs(int connectionNum, char **results);
+
+	ADDAPI void ADDCALL odboGetCubes(int connectionNum, char *catalogName, char **results);
+
+	ADDAPI void ADDCALL odboGetDimensions(int connectionNum, char *cubeName, char **results);
+
+	ADDAPI void ADDCALL odboGetHierarchies(int connectionNum, char *dimensionUniqueName, char **results);
+
+	ADDAPI void ADDCALL odboGetLevels(int connectionNum, char *hierarchyUniqueName, char **results);
+
+	ADDAPI void ADDCALL odboGetMembers(int connectionNum, char *levelUniqueName, char **results);
+	
+	ADDAPI void ADDCALL odboGetMembersChildren(int connectionNum, char *parentUniqueName, char **results);
 
 #ifdef __cplusplus
 }

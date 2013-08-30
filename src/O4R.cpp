@@ -27,6 +27,8 @@ RcppExport SEXP RODBOConnect(SEXP rprovider, SEXP rparameters)
 	const char *parameters = Rcpp::as<const char *>(rparameters);
 	Rcpp::IntegerVector handle;
 	handle.push_back(odboConnect(provider, parameters));
+	handle.attr("Provider") = provider;
+	handle.attr("ConString") = parameters;
 	return handle;
 }
 
@@ -40,6 +42,7 @@ RcppExport SEXP RODBOClose(SEXP rhandle)
 RcppExport SEXP RODBOCloseAll()
 {
 	odboDisconnectAll();
+	return R_NilValue;
 }
 
 RcppExport SEXP RODBOExecute(SEXP rhandle, SEXP rquery)
@@ -76,8 +79,15 @@ RcppExport SEXP RODBOExecute(SEXP rhandle, SEXP rquery)
 			for (unsigned col = 0; col < numCols; col++)
 			{
 				std::string svalue = doc["rowData"][rowNum][rapidjson::SizeType(col)].GetString();
-				svalue.erase(std::remove(svalue.begin(), svalue.end(), ','), svalue.end());
-				data(row, col) =strtod(svalue.c_str(), NULL);
+				if (!svalue.empty())
+				{
+					svalue.erase(std::remove(svalue.begin(), svalue.end(), ','), svalue.end());
+					data(row, col) = strtod(svalue.c_str(), NULL);
+				}
+				else
+				{
+					data(row, col) = NA_REAL;
+				}
 			}
 			delete[] rowNum;
 		}
@@ -89,4 +99,18 @@ RcppExport SEXP RODBOExecute(SEXP rhandle, SEXP rquery)
 		return resultDataFrame;
 	}
 	return R_NilValue;
+}
+
+RcppExport SEXP RODBODiscover(SEXP rhandle, SEXP request)
+{
+	Rcpp::IntegerVector handle(rhandle);
+	// TODO: process "request" to call specific fuctions from VSO4R DLL to obtain corresponding metadata
+	return R_NilValue;
+}
+
+RcppExport SEXP RODBOValidHandle(SEXP rhandle)
+{
+	Rcpp::IntegerVector handle(rhandle);
+	bool returnValue = odboValidHandle(handle[0]);
+	return Rcpp::wrap(returnValue);
 }

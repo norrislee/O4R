@@ -73,41 +73,12 @@ ODBOProviderProxy::~ODBOProviderProxy()
 
 bool ODBOProviderProxy::Initialize( const std::wstring& provider, const std::wstring& parameters )
 {
-    // Case 1: Not connected to a provider.
-	//if (!m_initialized)
-	//{
-		this->ProviderConnect( provider, parameters );
+	this->ProviderConnect( provider, parameters );
 
-		m_provider = provider;
-		m_initialized = true;
-	/*}
-    // Case 2: Already connected to a provider, but the target provider is different.
-    else if (m_provider != provider)
-    {
-        this->ProviderDisconnect();
-        this->ProviderConnect( provider, parameters );
+	m_provider = provider;
 
-        m_provider = provider;
-        m_initialized = true;
-    }
-    // Case 3: Already connected to the target provider, check if parameters have changed.
-	else
-	{
-        ParameterValueMap	tempMap;
+	m_initialized = true;
 
-        BuildParameterMap( parameters, tempMap );
-
-        // The provider hasn't changed so check if the connection parameters have changed.
-        if (!IdenticalParameterSets( m_currentParameterSettings, tempMap ))
-        {
-            this->ProviderDisconnect();
-            this->ProviderConnect( provider, parameters );
-            
-            m_provider = provider;
-            m_initialized = true;
-        }
-    }
-	*/
 	return m_initialized;
 }
 

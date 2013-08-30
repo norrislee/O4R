@@ -26,7 +26,7 @@
 
 using namespace Simba::Test::Utilities;
 
-static Simba::Test::ODBO::ODBOProviderProxy * openedConnections[MAX_CONNECTIONS];
+static Simba::Test::ODBO::ODBOProviderProxy *openedConnections[MAX_CONNECTIONS];
 unsigned connectionNum = 0;
 
 ::IUnknown *unknown;
@@ -207,6 +207,9 @@ void _getAxesRowsetMemberCaptions(std::vector<std::vector<std::vector<char *> > 
 
 char * createJson(std::vector<std::vector<char *> > table, std::vector<std::vector<std::vector<char *> > > memberCaptions)
 {
+	// Table is organized as a vector of rows containing a vector of columns.
+	// MemberCaptions is organized as a vector containing 2 elements, column and row. Within each is a vector of columns or rows respectively. Within each of
+	// those contains a vector of member captions (eg. 2 captions if you have a crossjoin).
 	std::vector<char *> rowPtrs;
 	rapidjson::Document data;
 	rapidjson::Document::AllocatorType& allocator = data.GetAllocator();
@@ -259,7 +262,7 @@ char * createJson(std::vector<std::vector<char *> > table, std::vector<std::vect
 	return result;
 }
 
-void ADDCALL odboGetDataset(char** results)
+void ADDCALL odboGetDataset(char **results)
 {
 	std::vector<std::vector<char *> > result;
 	std::vector<std::vector<std::vector<char *> > > axesInfo;
@@ -359,8 +362,9 @@ void ADDCALL odboGetDataset(char** results)
 		aRow.clear();
 		iRow++;
 	}
-	char* intermediate = createJson(result, axesInfo);
-	*results = intermediate;
+	std::vector<std::vector<std::vector<char*> > > something;
+	something.push_back(axesInfo[0]);
+	*results = createJson(result, something);
 	deleteCharPtrs(valuePtrs);
 	for (unsigned i = 0; i < 2; i++)
 	{
@@ -370,14 +374,87 @@ void ADDCALL odboGetDataset(char** results)
 		}
 	}
 }
-/*
-int main()
+
+bool ADDCALL odboValidHandle(int connectionNum)
 {
-	odboConnect("SimbaO2X.4", "Data Source=http://sap9or:8000/sap/bw/xml/soap/xmla;Password=stenmukt;User ID=simba9;Location=\"\";Integrated Security=\"\";Persist Security Info=True;Impersonation Level=Anonymous;Mode=Read;Protection Level=None;Extended Properties=\"\";Initial Catalog=\"\"");
-	char *result;
-	//if (odboExecute("SELECT NON EMPTY {[Measures].[DCWMP2BHR7OC45K96OVQU5XFK]} ON COLUMNS, NON EMPTY {[0D_CO_CODE].Members} ON ROWS FROM [0D_DECU/0D_DECU_Q0011]"))
-	//if (odboExecute("SELECT NON EMPTY {[Measures].[DCWMP2BHR7OC45K96OVQU5XFK], [Measures].[5L5NOQ19S3GU7W06QNSON68LW]} ON COLUMNS, NON EMPTY {[0D_CO_CODE].Members} ON ROWS FROM [0D_DECU/0D_DECU_Q0011]"))
-	if (odboExecute("SELECT NON EMPTY {Crossjoin({[Measures].Members}, {[0CALYEAR].[LEVEL00].Members})} ON COLUMNS, NON EMPTY {Crossjoin({[0D_CO_CODE].Members}, {[0D_CO_CODE__0D_COUNTRY].Members})} ON ROWS FROM [0D_DECU/0D_DECU_Q0011]"))
-		odboGetDataset(&result);
-	return 1;
-}*/
+	return openedConnections[connectionNum] != NULL;
+}
+
+void ADDCALL odboGetCatalogs(int connectionNum, char **results)
+{
+	getSchemaRowsetResults *m = new getSchemaRowsetResults(openedConnections[connectionNum]->GetDbSchemaRowset(), ::DBSCHEMA_CATALOGS, 0, NULL);
+	std::vector<char *> catalogNamePtrs;
+
+	m->execute();
+	DBORDINAL catalogNameColumn = 0;
+
+	for (DBORDINAL i = 0; i < m->cColumns; i++)
+	{
+		if (m->rgInfo[i].pwszName == NULL) continue;
+		
+		USES_CONVERSION;
+		if (0 == strcmp("COLUMN_NAME", OLE2A(m->rgInfo[i].pwszName)))
+		{
+			catalogNameColumn = i;
+			break;
+		}
+	}
+
+	void *data = ::CoTaskMemAlloc(m->rowlength);
+
+	void *catalogName;
+	::HRESULT hr = E_FAIL;
+	std::vector<std::vector<char *> > catalogs;
+	std::vector<char *> aRow;
+	for (::DBCOUNTITEM i = 0; i < m->cRowsObtained; i++)
+	{
+		hr = m->rowset->GetData(m->rghRows[i], m->hAccessor, data);
+		if(FAILED(hr))
+		{
+			std::cerr << GetErrorMessage( std::string( "MiddleMan::getCatalogs()" ),
+				std::string( "GetData() failed." ),
+				m->rowset ) << std::endl;
+		}
+
+		catalogName = (::BYTE*) data + m->bindings[catalogNameColumn].obValue;
+		wchar_t *wcatalogName = ((static_cast<wchar_t*>(catalogName)));
+		char *ccatalogName = new char[wcslen(wcatalogName)+1];
+		wcstombs_s(NULL, ccatalogName, wcslen(wcatalogName)+1, wcatalogName, wcslen(wcatalogName)+1);
+		catalogNamePtrs.push_back(ccatalogName);
+		aRow.push_back(ccatalogName);
+		catalogs.push_back(aRow);
+	}
+
+	//TODO: create json, check if "catalogs" created properly
+	deleteCharPtrs(catalogNamePtrs);
+}
+
+void ADDCALL odboGetCubes(int connectionNum, char *catalogName, char **results)
+{
+	//TODO
+}
+
+void ADDCALL odboGetDimensions(int connectionNum, char *cubeName, char **results)
+{
+	//TODO
+}
+
+void ADDCALL odboGetHierarchies(int connectionNum, char *dimensionUniqueName, char **results)
+{
+	//TODO
+}
+
+void ADDCALL odboGetLevels(int connectionNum, char *hierarchyUniqueName, char **results)
+{
+	//TODO
+}
+
+void ADDCALL odboGetMembers(int connectionNum, char *levelUniqueName, char **results)
+{
+	//TODO
+}
+
+void ADDCALL odboGetMembersChildren(int connectionNum, char *parentUniqueName, char **results)
+{
+	//TODO
+}

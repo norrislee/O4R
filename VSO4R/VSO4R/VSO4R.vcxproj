@@ -183,6 +183,7 @@
   <ItemGroup>
     <ClInclude Include="COMError.h" />
     <ClInclude Include="COMVariant.h" />
+    <ClInclude Include="getSchemaRowsetResults.h" />
     <ClInclude Include="IQueryRowset.h" />
     <ClInclude Include="VSO4R.h" />
     <ClInclude Include="ODBOProviderProxy.h" />
@@ -194,6 +195,7 @@
   <ItemGroup>
     <ClCompile Include="COMEror.cpp" />
     <ClCompile Include="COMVariant.cpp" />
+    <ClCompile Include="getSchemaRowsetResults.cpp" />
     <ClCompile Include="VSO4R.cpp" />
     <ClCompile Include="ODBOProviderProxy.cpp" />
     <ClCompile Include="ODBOUtils.cpp" />

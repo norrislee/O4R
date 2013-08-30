@@ -45,6 +45,9 @@
     <ClInclude Include="VSO4R.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="getSchemaRowsetResults.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="COMEror.cpp">
@@ -69,6 +72,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="VSO4R.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="getSchemaRowsetResults.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

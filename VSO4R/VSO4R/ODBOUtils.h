@@ -2,6 +2,7 @@
 #define _ODBO_UTILS_INCLUDE_
 
 #include <oledb.h>
+#include <xstring>
 #define MAX_COLUMN_SIZE 5000			// Maximum number of columns in a rowset.
 #ifdef WIN64
 	#define DBORDINAL_MAX ULLONG_MAX
